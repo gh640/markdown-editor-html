@@ -7,6 +7,10 @@ markdown-editor-html
 
 [marked](https://github.com/chjj/marked)を使っています。というか、、、そのままです。
 
+![image 1](https://raw.github.com/gh640/markdown-editor-html/master/01.png)
+
+![image 2](https://raw.github.com/gh640/markdown-editor-html/master/02.png)
+
 ## HOW
 
 ### インストール
