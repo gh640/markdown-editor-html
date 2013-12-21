@@ -1,30 +1,32 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <title>Simple Markdown Editor</title>
         <link rel="stylesheet" href="base.css" type="text/css" />
     </head>
     <body>
         <div id="bodywrapper">
             <div id="input-box">
-                <textarea id="text-input" oninput="this.editor.update()" >ここに入力してください。</textarea>
-
+                <textarea id="input">input here.</textarea>
             </div>
             <div id="preview-box">
                 <div id="preview"> </div>
             </div>
             <div class="clear"></div>
         </div>
-        <script src="lib/markdown.js"></script>
+        <script src="marked.js"></script>
         <script>
-            function Editor(input, preview) {
-                this.update = function () {
-                    preview.innerHTML = markdown.toHTML(input.value);
+            (function(){
+                var $ = function(id){
+                    return document.getElementById(id);
                 };
-                input.editor = this;
-                this.update();
-            }
-            var $ = function (id) { return document.getElementById(id); };
-            new Editor($("text-input"), $("preview"));
+                var textarea_input = $("input");
+                var div_preview = $("preview");
+                textarea_input.oninput = function(){
+                    preview.innerHTML = marked(textarea_input.value);
+                };
+            })();
         </script>
     </body>
 </html>
